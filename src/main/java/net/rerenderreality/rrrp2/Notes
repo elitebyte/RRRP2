@@ -8,4 +8,6 @@ Text styledText = Texts.builder("Yay! Styled text!").style(TextStyles.ITALIC).bu
 Text multiColoredText = Texts.builder("Sponges are ").color(TextColors.YELLOW).append(
         Texts.builder("invincible!").color(TextColors.RED).build()).build();
 Text clickableText = Texts.builder("Click here!").onClick(TextActions.runCommand("tell Spongesquad I'm ready!")).build();
+Text adventurers = Texts.builder("These players are in adventure mode: ").append(
+        Texts.of(Selectors.parse("@a[m=2]"))).build();
 }
