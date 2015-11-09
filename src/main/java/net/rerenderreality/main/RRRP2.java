@@ -1,4 +1,4 @@
-package net.rerenderreality.rrrp2;
+package net.rerenderreality.main;
 
 import org.slf4j.Logger;
 import org.spongepowered.api.event.Listener;
