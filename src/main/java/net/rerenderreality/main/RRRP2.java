@@ -1,10 +1,11 @@
 package net.rerenderreality.main;
 
 import org.slf4j.Logger;
-import org.spongepowered.api.event.Listener;
+import org.spongepowered.api.Game;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.plugin.Plugin;
 
+import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 @Plugin(id = "net.rerenderreality", name = "RRRP2", version = "0.1-ALPHA")
@@ -14,18 +15,25 @@ public class RRRP2 {
 	public final String version = "0.1-ALPHA";
 	public final String name = "RRRP2";
 
-	public RRRP2 plugin = this;
+	@Inject
+	public Game game;
+	public RRRP2 plugin;
 
 	@Inject
 	private Logger logger;
 
-	@Listener
+	@Subscribe
+	public void onIntializationEvent(InitializationEvent event) {
+
+	}
+
+	@Subscribe
 	public void onServerStart(GameStartedServerEvent event) {
 		getLogger().info(
 				name + " v" + version + " has successfully been initialized!");
 	}
 
-	@Listener
+	@Subscribe
 	public void onServerStop(GameStartedServerEvent event) {
 		getLogger().info(
 				name + " v" + version + " has successfully been unitialized!");
