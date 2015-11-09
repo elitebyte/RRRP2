@@ -23,12 +23,8 @@ public class RRRP2 {
 	private Logger logger;
 
 	@Subscribe
-	public void onIntializationEvent(InitializationEvent event) {
-
-	}
-
-	@Subscribe
 	public void onServerStart(GameStartedServerEvent event) {
+		plugin = this;
 		getLogger().info(
 				name + " v" + version + " has successfully been initialized!");
 	}
