@@ -7,14 +7,28 @@ import org.spongepowered.api.plugin.Plugin;
 
 import com.google.inject.Inject;
 
-@Plugin(id = "net.rerenderreality.rrrp2", name = "RRRP2", version = "0.1-ALPHA")
+@Plugin(id = "net.rerenderreality", name = "RRRP2", version = "0.1-ALPHA")
 public class RRRP2 {
 
+	public final String id = "net.rerenderreality";
+	public final String version = "0.1-ALPHA";
+	public final String name = "RRRP2";
+
+	public RRRP2 plugin = this;
+
+	@Inject
 	private Logger logger;
 
 	@Listener
 	public void onServerStart(GameStartedServerEvent event) {
+		getLogger().info(
+				name + " v" + version + " has successfully been initialized!");
+	}
 
+	@Listener
+	public void onServerStop(GameStartedServerEvent event) {
+		getLogger().info(
+				name + " v" + version + " has successfully been unitialized!");
 	}
 
 	/*
