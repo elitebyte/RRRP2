@@ -24,7 +24,7 @@ public class RRRP2 {
 	private Logger logger;
 	
 	/**
-	 * 
+	 *Execute on GameStartingServerEvent event
 	 */
 	@Listener
 	public void onGameStartingServerEvent(GameStartingServerEvent event)
@@ -34,7 +34,7 @@ public class RRRP2 {
 	}
 
 	/**
-	 * GameStoppingServerEvent
+	 * Execute on GameStoppingServerEvent event
 	 */
 	@Listener
 	public void onGameStoppingServerEvent(GameStoppingServerEvent event)
@@ -43,7 +43,7 @@ public class RRRP2 {
 	}
 
 	/**
-	 * Return logger of Logger type
+	 * Return plugin logger of Logger type
 	 */
 	public Logger getLogger() {
 		return logger;
