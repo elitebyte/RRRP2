@@ -23,7 +23,7 @@ public class RRRP2 {
 	@Inject
 	private Logger logger;
 	
-	@Subscribe
+	@Listener
 	public void onServerStart(GameStartedServerEvent event) {
 		plugin = this;
 		getLogger().info(
