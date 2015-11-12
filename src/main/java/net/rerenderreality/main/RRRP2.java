@@ -1,6 +1,7 @@
 package net.rerenderreality.main;
 
 import org.slf4j.Logger;
+import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.plugin.Plugin;
@@ -22,7 +23,7 @@ public class RRRP2 {
 	@Inject
 	private Logger logger;
 
-	@Subscribe
+	@Listener
 	public void onServerStart(GameStartedServerEvent event) {
 		plugin = this;
 		getLogger().info(
