@@ -1,13 +1,14 @@
 package net.rerenderreality.main;
 
+import com.google.inject.Inject;
+
 import org.slf4j.Logger;
-import org.spongepowered.api.event.Listener;
+
 import org.spongepowered.api.Game;
+import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartingServerEvent;
 import org.spongepowered.api.event.game.state.GameStoppingServerEvent;
 import org.spongepowered.api.plugin.Plugin;
-
-import com.google.inject.Inject;
 
 @Plugin(id = "net.rerenderreality", name = "RRRP2", version = "0.1-ALPHA")
 public class RRRP2 {
