@@ -3,10 +3,10 @@ package net.rerenderreality.main;
 import org.slf4j.Logger;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.Game;
-import org.spongepowered.api.event.game.state.*;
+import org.spongepowered.api.event.game.state.GameStartingServerEvent;
+import org.spongepowered.api.event.game.state.GameStoppingServerEvent;
 import org.spongepowered.api.plugin.Plugin;
 
-import com.google.common.eventbus.Subscribe;
 import com.google.inject.Inject;
 
 @Plugin(id = "net.rerenderreality", name = "RRRP2", version = "0.1-ALPHA")
@@ -23,31 +23,29 @@ public class RRRP2 {
 	@Inject
 	private Logger logger;
 	
-	@Subscribe
-	public void init(GameInitializationEvent event) {
+	/**
+	 * 
+	 */
+	@Listener
+	public void onGameStartingServerEvent(GameStartingServerEvent event)
+	{
 		plugin = this;
-		getLogger().info(
-				name + " v" + version + " has successfully been initialized!");
-		getLogger().warn("TEST LOGGER WARNING!@!");
+		getLogger().info(name + " v" + version + " has successfully been initialized!");
 	}
 
-	@Subscribe
-	public void onServerStop(GameStartedServerEvent event) {
-		getLogger().info(
-				name + " v" + version + " has successfully been unitialized!");
+	/**
+	 * GameStoppingServerEvent
+	 */
+	@Listener
+	public void onGameStoppingServerEvent(GameStoppingServerEvent event)
+	{
+		getLogger().info(name + " v" + version + " has successfully been unitialized!");
 	}
 
-	/*
-	 * Logger Methods : getLogger(), setLogger()
+	/**
+	 * Return logger of Logger type
 	 */
 	public Logger getLogger() {
 		return logger;
-	}
-	
-	
-
-	@Inject
-	private void setLogger(Logger logger) {
-		this.logger = logger;
 	}
 }
