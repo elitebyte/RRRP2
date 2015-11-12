@@ -28,7 +28,7 @@ public class RRRP2 {
 		plugin = this;
 		getLogger().info(
 				name + " v" + version + " has successfully been initialized!");
-		logger.warn("TEST LOGGER WARNING!@!");
+		getLogger().warn("TEST LOGGER WARNING!@!");
 	}
 
 	@Subscribe
