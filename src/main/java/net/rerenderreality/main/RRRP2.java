@@ -23,7 +23,7 @@ public class RRRP2 {
 	@Inject
 	private Logger logger;
 	
-	@Subscribe
+	@Listener
 	public void onServerStart(GameStartedServerEvent event) {
 		plugin = this;
 		getLogger().info(
@@ -31,7 +31,7 @@ public class RRRP2 {
 		getLogger().warn("TEST LOGGER WARNING!@!");
 	}
 
-	@Subscribe
+	@Listener
 	public void onServerStop(GameStartedServerEvent event) {
 		getLogger().info(
 				name + " v" + version + " has successfully been unitialized!");
