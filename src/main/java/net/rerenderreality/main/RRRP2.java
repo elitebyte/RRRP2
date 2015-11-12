@@ -25,7 +25,7 @@ public class RRRP2 {
 	
 	@Listener
 	public void onServerStart(GameStartedServerEvent event) {
-		plugin = this;
+		//plugin = this;
 		getLogger().info(
 				name + " v" + version + " has successfully been initialized!");
 		getLogger().warn("TEST LOGGER WARNING!@!");
