@@ -31,7 +31,7 @@ public class RRRP2 {
 		getLogger().warn("TEST LOGGER WARNING!@!");
 	}
 
-	@Listener
+	@Subscribe
 	public void onServerStop(GameStartedServerEvent event) {
 		getLogger().info(
 				name + " v" + version + " has successfully been unitialized!");
