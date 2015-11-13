@@ -47,12 +47,18 @@ public class GetLocationCommand implements CommandCallable
 		return null;
 	}
 	
+	/**
+	 * Command detail variables
+	 */
 	private final Text usage = Texts.builder("Usage: /loc").color(TextColors.YELLOW).build();
 	private final Text help = Texts.builder("Help: /loc").color(TextColors.YELLOW).build();
 	private final Text description = Texts.builder("Get Location Command").color(TextColors.YELLOW).build();
 	private List<String> suggestions = new ArrayList<String>();
 	private String permission = "";
 	
+	/**
+	 * Command details overriding CommandCallable defaults
+	 */
 	@Override
 	public Text getUsage(CommandSource sender) { return usage; }
 	@Override

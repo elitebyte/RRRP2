@@ -46,12 +46,18 @@ public class HelloWorldCommand implements CommandCallable
 		return null;
 	}
 	
+	/**
+	 * Command detail variables
+	 */
 	private final Text usage = Texts.builder("Usage: /Hello or /HelloWorld or /Hi").color(TextColors.YELLOW).build();
 	private final Text help = Texts.builder("Help: /Hello or /HelloWorld or /Hi").color(TextColors.YELLOW).build();
 	private final Text description = Texts.builder("Hello World Test Command").color(TextColors.YELLOW).build();
 	private List<String> suggestions = new ArrayList<String>();
 	private String permission = "";
 	
+	/**
+	 * Command details overriding CommandCallable defaults
+	 */
 	@Override
 	public Text getUsage(CommandSource sender) { return usage; }
 	@Override
