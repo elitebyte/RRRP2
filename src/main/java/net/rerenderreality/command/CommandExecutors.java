@@ -8,15 +8,18 @@ import org.spongepowered.api.util.command.args.CommandContext;
 import org.spongepowered.api.util.command.source.CommandBlockSource;
 import org.spongepowered.api.util.command.source.ConsoleSource;
 import org.spongepowered.api.util.command.spec.CommandExecutor;
+import org.spongepowered.api.text.Texts;
 
 public class CommandExecutors implements CommandExecutor {
 	
 	CommandHandler commandHandler = new CommandHandler();
 
-	public CommandResult execute(CommandSource src, CommandContext args)
-			throws CommandException {
+	@Override
+	public CommandResult execute(CommandSource src, CommandContext args) throws CommandException
+	{	
 		
-				if (src instanceof Player) {
+		src.sendMessage(Texts.of("HELLO WORLD"));
+				/**if (src instanceof Player) {
 					Player p = (Player) src;
 					commandHandler.commandHandlerPlayer(p, args);
 				}
@@ -27,10 +30,8 @@ public class CommandExecutors implements CommandExecutor {
 				
 				else if (src instanceof CommandBlockSource) {
 					commandHandler.commandHandlerCmdBlock(src, args);
-				}
-
-		}
+				}*/
 		return CommandResult.success();
 	}
-
+		
 }

@@ -1,12 +1,8 @@
 Sponge Notes
 
-Logger works now. Commands working as well though having trouble getting those to work without 
-combining the command and main packages and putting command register code segment in main class. 
-definite WIP.
-
-
-
-
+TO DO LIST (Please add as needed):
+Logger -- complete
+Commands -- working needs framework organization/work
 
 Text Formatting   :
 
