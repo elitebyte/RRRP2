@@ -11,6 +11,7 @@ import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartingServerEvent;
 import org.spongepowered.api.event.game.state.GameStoppingServerEvent;
 import org.spongepowered.api.plugin.Plugin;
+import org.spongepowered.api.Server;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.util.command.spec.CommandSpec;
 
@@ -24,6 +25,7 @@ public class RRRP2
 	@Inject
 	public Game game;
 	public RRRP2 plugin;
+	public Server server;
 
 	@Inject
 	private Logger logger;
@@ -36,6 +38,7 @@ public class RRRP2
 	public void onGameStartingServerEvent(GameStartingServerEvent event)
 	{
 		plugin = this;
+		server = game.getServer();
 		logger.info(name + " v" + version + " has successfully been initialized.");
 		buildAndRegisterCommands();
 	}
@@ -60,6 +63,8 @@ public class RRRP2
 		game.getCommandDispatcher().register(this, new HelloWorldCommand(this), "Hello", "HelloWorld", "Hi");
 		//GetLocationCommand
 		game.getCommandDispatcher().register(this, new GetLocationCommand(this), "loc");
+		//GetMotdCommand
+		game.getCommandDispatcher().register(this, new GetMotdCommand(this), "MOTD");
 	}
 	
 	/**
@@ -68,5 +73,10 @@ public class RRRP2
 	public Logger getLogger()
 	{
 		return logger;
+	}
+	
+	public Server getServer()
+	{
+		return server;
 	}
 }

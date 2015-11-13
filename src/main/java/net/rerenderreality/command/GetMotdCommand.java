@@ -19,15 +19,13 @@ import org.spongepowered.api.util.command.CommandException;
 import org.spongepowered.api.util.command.CommandResult;
 import org.spongepowered.api.util.command.CommandSource;
 
-
-
-public class HelloWorldCommand implements CommandCallable
+public class GetMotdCommand implements CommandCallable
 {	
 	private Logger logger;
 	private RRRP2 plugin;
 	private Server server;
 	
-	public HelloWorldCommand(RRRP2 plugin)
+	public GetMotdCommand(RRRP2 plugin)
 	{
 		this.plugin = plugin;
 		logger = plugin.getLogger();
@@ -45,18 +43,18 @@ public class HelloWorldCommand implements CommandCallable
 		if (src instanceof Player)
 		{
 			Player p = (Player) src;
-			p.sendMessage(Texts.of("HELLO WORLD"));
+			p.sendMessage(Texts.of("Today's message of the day: " + server.getMotd() + "."));
 			return CommandResult.success();
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Command detail variables
 	 */
-	private final Text usage = Texts.builder("Usage: /Hello or /HelloWorld or /Hi").color(TextColors.YELLOW).build();
-	private final Text help = Texts.builder("Help: /Hello or /HelloWorld or /Hi").color(TextColors.YELLOW).build();
-	private final Text description = Texts.builder("Hello World Test Command").color(TextColors.YELLOW).build();
+	private final Text usage = Texts.builder("Usage: /MOTD").color(TextColors.YELLOW).build();
+	private final Text help = Texts.builder("Help: /MOTD").color(TextColors.YELLOW).build();
+	private final Text description = Texts.builder("Get MOTD Command").color(TextColors.YELLOW).build();
 	private List<String> suggestions = new ArrayList<String>();
 	private String permission = "";
 	

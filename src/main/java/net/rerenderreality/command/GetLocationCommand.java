@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.spongepowered.api.entity.living.player.Player;
+import org.spongepowered.api.Server;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.text.format.TextColors;
@@ -23,11 +24,13 @@ public class GetLocationCommand implements CommandCallable
 {	
 	private Logger logger;
 	private RRRP2 plugin;
+	private Server server;
 	
 	public GetLocationCommand(RRRP2 plugin)
 	{
 		this.plugin = plugin;
 		logger = plugin.getLogger();
+		server = plugin.getServer();
 	}
 	
 	/**
