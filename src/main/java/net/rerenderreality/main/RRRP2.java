@@ -57,17 +57,9 @@ public class RRRP2
 	private void buildAndRegisterCommands()
 	{
 		//HelloWorldCommand
-		CommandSpec HelloWorldCommand = CommandSpec.builder()
-				.description(Texts.of("Hello World Command"))
-				.executor(new HelloWorldCommand(this))
-				.build();
-		game.getCommandDispatcher().register(this, HelloWorldCommand, "Hello", "HelloWorld", "Hi");
+		game.getCommandDispatcher().register(this, new HelloWorldCommand(this), "Hello", "HelloWorld", "Hi");
 		//GetLocationCommand
-		CommandSpec GetLocationCommand = CommandSpec.builder()
-				.description(Texts.of("Get Location Command"))
-				.executor(new GetLocationCommand(this))
-				.build();
-		game.getCommandDispatcher().register(this, GetLocationCommand, "loc");
+		game.getCommandDispatcher().register(this, new GetLocationCommand(this), "loc");
 	}
 	
 	/**
