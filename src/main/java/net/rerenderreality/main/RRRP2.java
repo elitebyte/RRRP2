@@ -36,6 +36,8 @@ public class RRRP2 {
 		plugin = this;
 		getLogger().info(name + " v" + version + " has successfully been initialized.");
 		CommandRegistry registry = new CommandRegistry();
+
+		game.getCommandDispatcher().register(plugin, myCommandSpec, "message", "msg", "m");
 		game.getCommandDispatcher().register(plugin, registry.getCommandSpec(), registry.getAliases("Hello"));
 	}
 
