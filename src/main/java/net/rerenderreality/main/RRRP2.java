@@ -62,7 +62,7 @@ public class RRRP2
 				.executor(new HelloWorldCommand(this))
 				.build();
 		game.getCommandDispatcher().register(this, HelloWorldCommand, "Hello", "HelloWorld", "Hi");
-		//TPSCommand
+		//GetLocationCommand
 		CommandSpec GetLocationCommand = CommandSpec.builder()
 				.description(Texts.of("Get Location Command"))
 				.executor(new GetLocationCommand(this))
