@@ -34,9 +34,9 @@ public class RRRP2 {
 	public void onGameStartingServerEvent(GameStartingServerEvent event)
 	{
 		plugin = this;
-		getLogger().info(name + " v" + version + " has successfully been initialized!");
-		CommandRegistry r = new CommandRegistry();
-		game.getCommandDispatcher().register(plugin, r.getCommandSpec(), r.getAliases("Hello"));
+		getLogger().info(name + " v" + version + " has successfully been initialized.");
+		CommandRegistry registry = new CommandRegistry();
+		game.getCommandDispatcher().register(plugin, registry.getCommandSpec(), registry.getAliases("Hello"));
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class RRRP2 {
 	@Listener
 	public void onGameStoppingServerEvent(GameStoppingServerEvent event)
 	{
-		getLogger().info(name + " v" + version + " has successfully been unitialized!");
+		getLogger().info(name + " v" + version + " has successfully been unitialized.");
 	}
 
 	/**
