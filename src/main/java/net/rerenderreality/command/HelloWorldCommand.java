@@ -20,13 +20,19 @@ import org.spongepowered.api.util.command.CommandResult;
 import org.spongepowered.api.util.command.CommandSource;
 
 
-
+/**
+ * Example command class for reference on further command class creation
+ */
 public class HelloWorldCommand implements CommandCallable
 {	
 	private Logger logger;
 	private RRRP2 plugin;
 	private Server server;
+	private String[] args;
 	
+	/**
+	 * Command class constructor with variable initialization
+	 */
 	public HelloWorldCommand(RRRP2 plugin)
 	{
 		this.plugin = plugin;
@@ -40,7 +46,7 @@ public class HelloWorldCommand implements CommandCallable
 	@Override
 	public CommandResult process(CommandSource src, String args) throws CommandException
 	{	
-		String[] a = args.split(" ");
+		this.args = args.split(" ");
 		
 		if (src instanceof Player)
 		{
@@ -61,7 +67,7 @@ public class HelloWorldCommand implements CommandCallable
 	private String permission = "";
 	
 	/**
-	 * Command details overriding CommandCallable defaults
+	 * Command detail variables overriding CommandCallable defaults
 	 */
 	@Override
 	public Text getUsage(CommandSource sender) { return usage; }

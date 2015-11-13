@@ -24,6 +24,7 @@ public class GetMotdCommand implements CommandCallable
 	private Logger logger;
 	private RRRP2 plugin;
 	private Server server;
+	private String[] args;
 	
 	public GetMotdCommand(RRRP2 plugin)
 	{
@@ -38,12 +39,12 @@ public class GetMotdCommand implements CommandCallable
 	@Override
 	public CommandResult process(CommandSource src, String args) throws CommandException
 	{	
-		String[] a = args.split(" ");
+		this.args = args.split(" ");
 		
 		if (src instanceof Player)
 		{
 			Player p = (Player) src;
-			p.sendMessage(Texts.of("Today's message of the day: " + server.getMotd() + "."));
+			p.sendMessage(Texts.of(server.getMotd()));
 			return CommandResult.success();
 		}
 		return null;

@@ -25,6 +25,7 @@ public class GetLocationCommand implements CommandCallable
 	private Logger logger;
 	private RRRP2 plugin;
 	private Server server;
+	private String[] args;
 	
 	public GetLocationCommand(RRRP2 plugin)
 	{
@@ -39,7 +40,7 @@ public class GetLocationCommand implements CommandCallable
 	@Override
 	public CommandResult process(CommandSource src, String args) throws CommandException
 	{
-		String[] a = args.split(" ");
+		this.args = args.split(" ");
 		
 		if (src instanceof Player)
 		{
