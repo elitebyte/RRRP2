@@ -35,10 +35,8 @@ public class RRRP2 {
 	{
 		plugin = this;
 		getLogger().info(name + " v" + version + " has successfully been initialized!");
-		
-		String[] aliases = {"Hello", "HelloWorld", "Test"};
 		CommandRegistry r = new CommandRegistry();
-		game.getCommandDispatcher().register(plugin, r.getSpec(), aliases);
+		game.getCommandDispatcher().register(plugin, r.getCommandSpec(), r.getAliases("Hello"));
 	}
 
 	/**

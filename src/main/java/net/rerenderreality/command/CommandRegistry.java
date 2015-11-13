@@ -15,12 +15,22 @@ public class CommandRegistry
 {
 	public CommandRegistry() {}
 	
-	public CommandSpec getSpec()
+	public CommandSpec getCommandSpec()
 	{
 		CommandSpec myCommandSpec = CommandSpec.builder()
 				.description(Texts.of("Hello World Command"))
 				.executor(new CommandExecutors()).build();
 		
 		return myCommandSpec;
-	}	
+	}
+	
+	public String[] getAliases(String command)
+	{
+		if(command == "Hello")
+		{
+			String[] aliases = {"Hello", "HelloWorld"};
+			return aliases;
+		}
+		return null;
+	}
 }
