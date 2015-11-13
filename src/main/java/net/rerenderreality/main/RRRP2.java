@@ -47,7 +47,7 @@ public class RRRP2
 	@Listener
 	public void onGameStoppingServerEvent(GameStoppingServerEvent event)
 	{
-		getLogger().info(name + " v" + version + " has successfully been unitialized.");
+		logger.info(name + " v" + version + " has successfully been unitialized.");
 	}
 	
 	/**
