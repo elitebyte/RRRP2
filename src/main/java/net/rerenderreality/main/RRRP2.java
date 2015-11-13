@@ -36,8 +36,16 @@ public class RRRP2
 	public void onGameStartingServerEvent(GameStartingServerEvent event)
 	{
 		plugin = this;
+<<<<<<< HEAD
 		logger.info(name + " v" + version + " has successfully been initialized.");
 		buildAndRegisterCommands();
+=======
+		getLogger().info(name + " v" + version + " has successfully been initialized.");
+		CommandRegistry registry = new CommandRegistry();
+
+		game.getCommandDispatcher().register(plugin, myCommandSpec, "message", "msg", "m");
+		game.getCommandDispatcher().register(plugin, registry.getCommandSpec(), registry.getAliases("Hello"));
+>>>>>>> 011df49f90c2cf02c9981c8feeb2ae2f3849acd8
 	}
 
 	/**
