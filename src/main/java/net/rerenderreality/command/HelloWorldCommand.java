@@ -52,10 +52,8 @@ public class HelloWorldCommand implements CommandExecutor
 			}
 			else
 			{
-				Player p = (Player) src;
-				p.sendMessage(Texts.of("HELLO WORLD"));
+				src.sendMessage(Texts.of("HELLO WORLD"));
 			}
-			return CommandResult.success();
 		}
 		return CommandResult.success();
 	}

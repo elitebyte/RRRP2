@@ -31,14 +31,7 @@ public class GetMotdCommand implements CommandExecutor
 	@Override
 	public CommandResult execute(CommandSource src, CommandContext args) throws CommandException
 	{	
-		//arguments = args.split(" ");
-		
-		if (src instanceof Player)
-		{
-			Player p = (Player) src;
-			p.sendMessage(Texts.of(server.getMotd()));
-			return CommandResult.success();
-		}
+		src.sendMessage(Texts.of(Texts.of("Today's Message of the Day is: ").toText(), server.getMotd().toText()));
 		return CommandResult.success();
 	}
 }
