@@ -48,7 +48,7 @@ public class GetLocationCommand implements CommandCallable
 			p.sendMessage(Texts.of("Current location (X: " + p.getLocation().getBlockX() + " Y: " + p.getLocation().getBlockY() + " Z: " + p.getLocation().getBlockZ() + ")"));
 			return CommandResult.success();
 		}
-		return null;
+		return CommandResult.success();
 	}
 	
 	/**
