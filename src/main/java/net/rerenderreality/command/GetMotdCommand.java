@@ -47,7 +47,7 @@ public class GetMotdCommand implements CommandCallable
 			p.sendMessage(Texts.of(server.getMotd()));
 			return CommandResult.success();
 		}
-		return null;
+		return CommandResult.success();
 	}
 
 	/**
