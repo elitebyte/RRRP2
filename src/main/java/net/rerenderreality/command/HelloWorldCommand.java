@@ -17,6 +17,8 @@ import org.spongepowered.api.util.command.CommandResult;
 import org.spongepowered.api.util.command.CommandSource;
 import org.spongepowered.api.util.command.spec.CommandExecutor;
 
+import java.util.Collection;
+
 /**
  * Example command class for reference on further command class creation
  */
@@ -48,13 +50,18 @@ public class HelloWorldCommand implements CommandExecutor
 		{
 			if (args.hasAny("out"))
 			{
-				sink.sendMessage(Texts.of("HELLO SERVER"));
+				if (args.<String>getOne("out").get().equals("server"))
+				{
+					sink.sendMessage(Texts.of("HELLO SERVER"));
+					return CommandResult.success();
+				}
 			}
 			else
 			{
 				src.sendMessage(Texts.of("HELLO WORLD"));
+				return CommandResult.success();
 			}
 		}
-		return CommandResult.success();
+		return CommandResult.empty();
 	}
 }
