@@ -54,7 +54,7 @@ public class HelloWorldCommand implements CommandCallable
 			p.sendMessage(Texts.of("HELLO WORLD"));
 			return CommandResult.success();
 		}
-		return null;
+		return CommandResult.success();
 	}
 	
 	/**
