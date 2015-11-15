@@ -49,7 +49,7 @@ public class RRRP2
 		logger.info(name + " v" + version + " has successfully been initialized.");
 		buildAndRegisterCommands();
 	}
-
+	
 	/**
 	 * Execute on GameStoppingServerEvent event
 	 * Plugin Uninitialization
@@ -78,7 +78,7 @@ public class RRRP2
 		/**
 		 * GetLocationSpec initialization
 		 */
-		CommandSpec GetLocationSpec = CommandSpec.builder()
+		CommandSpec getLocationSpec = CommandSpec.builder()
                 .description(Texts.of("Get Location Command"))
                 .executor(new GetLocationCommand(this))
                 .build();
@@ -86,17 +86,27 @@ public class RRRP2
 		/**
 		 * GetMotdSpec initialization
 		 */
-		CommandSpec GetMotdSpec = CommandSpec.builder()
+		CommandSpec getMotdSpec = CommandSpec.builder()
                 .description(Texts.of("Get Motd Command"))
                 .executor(new GetMotdCommand(this))
+                .build();
+		
+		/**
+		 * GetTpsSpec initialization
+		 */
+		CommandSpec getTpsSpec = CommandSpec.builder()
+                .description(Texts.of("Get Tps Command"))
+                .executor(new GetTpsCommand(this))
                 .build();
 		
 		//HelloWorldCommand register
 		game.getCommandDispatcher().register(this, helloWorldSpec, "Hello", "HelloWorld", "Hi");
 		//GetLocationCommand register
-		game.getCommandDispatcher().register(this, GetLocationSpec, "loc");
+		game.getCommandDispatcher().register(this, getLocationSpec, "Loc");
 		//GetMotdCommand register
-		game.getCommandDispatcher().register(this, GetMotdSpec, "MOTD");
+		game.getCommandDispatcher().register(this, getMotdSpec, "MOTD");
+		//GetTpsCommand register
+		game.getCommandDispatcher().register(this, getTpsSpec, "Tps", "Ticks");
 	}
 	
 	/**
