@@ -5,7 +5,6 @@ import com.google.inject.Inject;
 import net.rerenderreality.command.*;
 
 import org.slf4j.Logger;
-
 import org.spongepowered.api.Game;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartingServerEvent;
@@ -93,12 +92,10 @@ public class RRRP2
 		
 		/**
 		 * GetTpsSpec initialization
-		 */
 		CommandSpec getTpsSpec = CommandSpec.builder()
                 .description(Texts.of("Get Tps Command"))
                 .executor(new GetTpsCommand(this))
-                .build();
-		
+                .build();*/
 		//HelloWorldCommand register
 		game.getCommandDispatcher().register(this, helloWorldSpec, "Hello", "HelloWorld", "Hi");
 		//GetLocationCommand register
@@ -106,7 +103,7 @@ public class RRRP2
 		//GetMotdCommand register
 		game.getCommandDispatcher().register(this, getMotdSpec, "MOTD");
 		//GetTpsCommand register
-		game.getCommandDispatcher().register(this, getTpsSpec, "Tps", "Ticks");
+		//game.getCommandDispatcher().register(this, getTpsSpec, "Tps", "Ticks");
 	}
 	
 	/**
