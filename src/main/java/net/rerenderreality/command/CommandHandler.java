@@ -6,7 +6,8 @@ import org.spongepowered.api.util.command.args.CommandContext;
 
 public class CommandHandler {
 
-	public void commandHandlerPlayer(Player p, CommandContext args) {
+	public void commandHandlerPlayer(CommandSource src, CommandContext args) {
+		Player p = (Player) src;
 
 	}
 
@@ -17,5 +18,4 @@ public class CommandHandler {
 	public void commandHandlerCmdBlock(CommandSource src, CommandContext args) {
 
 	}
-
 }
