@@ -16,7 +16,6 @@ import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.text.sink.MessageSink;
 import org.spongepowered.api.util.command.args.GenericArguments;
-import org.spongepowered.api.util.command.spec.CommandExecutor;
 import org.spongepowered.api.util.command.spec.CommandSpec;
 
 import com.google.inject.Inject;
@@ -115,26 +114,14 @@ public class RRRP2 {
 		CommandSpec[] commandSpecs = new CommandSpec[numofcmds];
 		String[][] aliases = new String[numofcmds][numofcmds];
 		
-		BaseCommand bc = new BaseCommand();
-		
 		aliases[0] = stringFormatter("Hello", "HelloWorld");
-		commandSpecs[0] = CommandSpec.builder().description(Texts.of("Hi")).executor(new CommandExecutors(this)).build();
-		
-		
+		BaseCommand hello = new BaseCommand();
+		hello.setInformation("Hello", "Hello Command", "rrrp2.hello", aliases[0]);
+		commandSpecs[0] = CommandSpec.builder().description(Texts.of("Hi")).permission("rrrp2.hello").executor(new CommandExecutors(this, hello)).build();
 		
 		for (int i = 0 ; i <= commandSpecs.length ; i++) {
 			game.getCommandDispatcher().register(this, commandSpecs[i], aliases[i]);
 		}
-	}
-	
-	public void commandFactory(String name, String[] aliases, String permissions, String description, CommandExecutor executor) {
-		BaseCommand bc = new BaseCommand();
-		bc.name = name;
-		bc.aliases = aliases;
-		bc.description = description;
-		
-		CommandSpec commandSpec = CommandSpec.builder().description(Texts.of(description)).executor(executor).build();
-		game.getCommandDispatcher().register(this, commandSpec, aliases);
 	}
 	
 	public String[] stringFormatter(String... strings) {

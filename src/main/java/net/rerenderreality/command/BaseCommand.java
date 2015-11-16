@@ -32,6 +32,12 @@ public class BaseCommand {
 		return "";
 	}
 	
+	public void setInformation(String name, String description, String permission, String[] aliases) {
+		this.name = name;
+		this.description = description;
+		this.permission = permission;
+		this.aliases = aliases;
+	}
 	/*
 	 * Retrieves the permission string
 	 */

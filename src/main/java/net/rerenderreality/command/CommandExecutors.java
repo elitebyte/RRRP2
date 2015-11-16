@@ -21,11 +21,13 @@ public class CommandExecutors implements CommandExecutor {
 	private final RRRP2 plugin;
 	private final Server server;
 	private String[] arguments;
+	BaseCommand bc;
 
-	public CommandExecutors (RRRP2 plugin) {
+	public CommandExecutors (RRRP2 plugin, BaseCommand bc) {
 		this.plugin = plugin;
 		logger = plugin.getLogger();
 		server = plugin.getServer();
+		this.bc = bc;
 	}
 
 
@@ -33,6 +35,9 @@ public class CommandExecutors implements CommandExecutor {
 			throws CommandException {
 		if (src instanceof Player) {
 			commandHandler.commandHandlerPlayer(src, args);
+			if (bc.getName() == "Hello") {
+				
+			}
 		} else if (src instanceof ConsoleSource) {
 			commandHandler.commandHandlerConsole(src, args);
 		} else if (src instanceof CommandBlockSource) {
