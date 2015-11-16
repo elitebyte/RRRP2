@@ -7,12 +7,12 @@ import org.spongepowered.api.util.command.source.ConsoleSource;
 
 public class BaseCommand {
 
-	String name;
-	String description;
-	String permission;
-	String[] aliases;
+	public String name;
+	public String description;
+	public String permission;
+	public String[] aliases;
 	
-	CommandSource src;
+	public CommandSource src;
 	
 	/*
 	 *   Returns a String with the value

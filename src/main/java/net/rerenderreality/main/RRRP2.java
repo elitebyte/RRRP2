@@ -1,5 +1,6 @@
 package net.rerenderreality.main;
 
+import net.rerenderreality.command.BaseCommand;
 import net.rerenderreality.command.CommandExecutors;
 import net.rerenderreality.command.GetLocationCommand;
 import net.rerenderreality.command.GetMotdCommand;
@@ -15,6 +16,7 @@ import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.text.sink.MessageSink;
 import org.spongepowered.api.util.command.args.GenericArguments;
+import org.spongepowered.api.util.command.spec.CommandExecutor;
 import org.spongepowered.api.util.command.spec.CommandSpec;
 
 import com.google.inject.Inject;
@@ -81,7 +83,6 @@ public class RRRP2 {
 				.description(Texts.of("Get Location Command"))
 				.executor(new GetLocationCommand(this)).build();
 
-		CommandSpec[] commandSpecs = CommandSpec.builder().build();
 		
 		/**
 		 * GetMotdSpec initialization
@@ -110,15 +111,30 @@ public class RRRP2 {
 	}
 	
 	public void commandSpecFactory() {
-		CommandSpec[] commandSpecs = new CommandSpec[1];
-		String[][] aliases = new String[1][1];
+		int numofcmds = 3;
+		CommandSpec[] commandSpecs = new CommandSpec[numofcmds];
+		String[][] aliases = new String[numofcmds][numofcmds];
+		
+		BaseCommand bc = new BaseCommand();
 		
 		aliases[0] = stringFormatter("Hello", "HelloWorld");
 		commandSpecs[0] = CommandSpec.builder().description(Texts.of("Hi")).executor(new CommandExecutors(this)).build();
 		
+		
+		
 		for (int i = 0 ; i <= commandSpecs.length ; i++) {
 			game.getCommandDispatcher().register(this, commandSpecs[i], aliases[i]);
 		}
+	}
+	
+	public void commandFactory(String name, String[] aliases, String permissions, String description, CommandExecutor executor) {
+		BaseCommand bc = new BaseCommand();
+		bc.name = name;
+		bc.aliases = aliases;
+		bc.description = description;
+		
+		CommandSpec commandSpec = CommandSpec.builder().description(Texts.of(description)).executor(executor).build();
+		game.getCommandDispatcher().register(this, commandSpec, aliases);
 	}
 	
 	public String[] stringFormatter(String... strings) {
