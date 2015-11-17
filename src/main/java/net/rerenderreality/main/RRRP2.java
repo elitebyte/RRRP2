@@ -34,6 +34,7 @@ public class RRRP2 {
 	private Logger logger;
 	private Server server;
 	private MessageSink sink;
+	
 
 	/**
 	 * Execute on GameStartingServerEvent event Plugin initialization
